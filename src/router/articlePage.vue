@@ -1,11 +1,12 @@
 <template>
-    <div id="articlePage">
+    <div id="articlePage" >
         <top-info></top-info>
-        <div id="title">{{title}}</div>
+        <div id="title">{{title}}{{pw}}</div>
         <!-- <div>
             <router-view></router-view>
         </div> -->
-        <div id="acontent" v-html="content"/>
+        <div id="acontent" v-html="content" />
+        <div id="progressLine" :style="{ width: pw  + 'vw'}"></div>
     </div>
 </template>
 <script>
@@ -16,8 +17,32 @@ showdown.setFlavor('github')
 export default {
     data: function() {
         return{
-            data: ''
+            data: '',
+            throttle: null,
+            pw: 0
         }
+    },
+    methods:{
+        screenH() {
+            return document.documentElement.clientHeight
+        },
+        currentP() {
+            return document.documentElement.scrollTop
+        },
+        totalP() {
+            return document.documentElement.scrollHeight
+        },
+        scrolltop() {
+            if(this.throttle) return
+            this.throttle = setTimeout(() => {
+                this.pw =  parseInt((this.screenH()+this.currentP())/this.totalP()*100)
+                clearTimeout(this.throttle)
+                this.throttle = null
+            }, 15);
+        }
+    },
+    mounted() {
+        window.addEventListener('scroll', this.scrolltop)
     },
     computed: {
         query() {
@@ -36,6 +61,7 @@ export default {
             
             return this.convertor.makeHtml(this.text)
         }
+        
     },
     components: {
         topInfo,
@@ -43,6 +69,7 @@ export default {
 }
 </script>
 <style lang="less">
+    @dpink: darken(#d1c2d3, 30%);
     #articlePage{
         background: #d1c2d3;
         // background-image: linear-gradient(to bottom right, #50188d, #8d4bbd);
@@ -68,7 +95,7 @@ export default {
             border: 2px solid #ececf0;
             padding: 10px 20px;
             border-left: 7px solid #95d095;
-            width: 40vw;
+            border-radius: 5px;
             display: block;
             overflow: auto;
         }
@@ -98,4 +125,21 @@ export default {
         // box-shadow: 1px 1px 3px #f9f4dc, 1px 1px 3px #f9f4dc;
         // border-radius: 5px;
     }
+    @media screen and (max-width: 960px) {
+        #acontent{
+            background: #fff;
+            padding: 10px 80px;
+            width: 100vw;
+            margin: 150px auto;
+        }
+    }
+    #progressLine{
+            position: fixed;
+            bottom: 0px;
+            height: 0.7vh;
+            width: 100vw;
+            background: #d1c2d3;
+            box-shadow: 0px 0px 3px @dpink;
+        }
+    
 </style>

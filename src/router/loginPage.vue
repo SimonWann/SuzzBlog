@@ -133,9 +133,5 @@ export default {
         }
         
     }
-    body{
-        &::-webkit-scrollbar{
-            display: none;
-        }
-    }
+    
 </style>

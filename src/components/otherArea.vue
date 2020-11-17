@@ -1,6 +1,6 @@
 <template>
     <div id="otherArea">
-        <router-link v-for="(item,index) in article" tag="div" :to="'/article/'+index" class="articleArea">
+        <router-link v-for="(item,index) in article" :key="item._id" tag="div" :to="'/article/'+index" class="articleArea">
             <article-box :index="index" :key="item._id"></article-box>
         </router-link> 
     </div>

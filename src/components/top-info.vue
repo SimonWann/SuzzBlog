@@ -29,7 +29,7 @@ export default {
         flex-wrap: nowrap;
         justify-content: space-around;
         align-items: baseline;
-        width: 20vw;
+        width: 25vw;
     }
     li{
         margin: 10px;

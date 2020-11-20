@@ -40,11 +40,17 @@ export default {
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
+        @media screen and (max-width: 1160px) {
+            flex-direction: column;
+        }
     }
     .articleArea{
         position: relative;
         top: -124px;
         margin: 40px auto;
         flex-basis: 30vw;
+        @media screen and (max-width: 1160px) {
+            margin: 20px auto;
+        }
     }
 </style>

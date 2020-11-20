@@ -82,6 +82,9 @@ export default {
             box-shadow: 0px 1px 10px #a6a6a6;
         }
     }
+    @media screen and (max-width: 960px){
+        
+    }
     
     
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div id="articlePage" >
         <top-info></top-info>
-        <div id="title">{{title}}{{pw}}</div>
+        <div id="title">{{title}}</div>
         <!-- <div>
             <router-view></router-view>
         </div> -->
@@ -43,6 +43,12 @@ export default {
     },
     mounted() {
         window.addEventListener('scroll', this.scrolltop)
+    },
+    created() {
+        console.log('send msg')
+            this.$store.dispatch('askProfile', {
+                username: 'Simooo'
+            })
     },
     computed: {
         query() {
@@ -86,9 +92,14 @@ export default {
             &:hover{
                 color: #4e2a40;
             }
+            
         }
         h3{
 
+        }
+        pre{
+            padding: 0px;
+            border-width: 0px;
         }
         code{
             background: #f7f7f9;

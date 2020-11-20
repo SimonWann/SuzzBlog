@@ -4,7 +4,9 @@
         <h3>{{name}}</h3>
         <p>{{sentence}}</p>
         <button class="btn btn-default">
-            <img src="../../public/img/icons8-github-96.png" alt="">
+            <a href="https://github.com/SimonWann/">
+                <img src="../../public/img/icons8-github-96.png" alt="">
+            </a>
         </button>
     </div> 
 </template>
@@ -12,9 +14,14 @@
 export default {
     data: function() {
         return {
-            name: this.$store.state.username,
+           
             sentence: '......而大海那么蔚蓝',
             isrc: '../../public/img/system-software-install.svg'
+        }
+    },
+    computed: {
+        name() {
+            return this.$store.state.username
         }
     }
 }
@@ -31,13 +38,15 @@ export default {
             font-size: 50px;
             font-weight: 700;
             text-shadow: 1px 1px 3px #50188d;
+            overflow: hidden;
+            text-align: center;
         }
         p{
             font-size: 15px;
             text-shadow: 1px 1px 3px #50188d;
         }
         button{
-            overflow: auto;
+            
             padding: 5px;
             border-radius: 3px;
             background: #3a3a3a;

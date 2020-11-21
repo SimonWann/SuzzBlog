@@ -23,7 +23,9 @@ export default {
         }
     },
     created() {
-        
+        if(this.$store.state.article[0].content){
+            return 
+        }
         this.$store.commit('initArticle', this.query)
     },
     methods:{

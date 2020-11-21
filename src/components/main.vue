@@ -22,12 +22,6 @@ export default {
     },
     methods: {
        
-    },
-    created() {
-        console.log('send msg')
-            this.$store.dispatch('askProfile', {
-                username: 'Simooo'
-            })
     }
 }
 </script>

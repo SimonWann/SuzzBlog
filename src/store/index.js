@@ -38,6 +38,23 @@ export default new Vuex.Store({
     },
     currentPage(state, payload) {
       console.log(payload.data)
+    },
+    initArticle(state, payload) {
+      console.log(state.article[payload])
+      if(state.article[payload] === undefined) {
+        console.log(404)
+        state.article[payload] = {
+          title: '404',
+          introduction: 'Not found',
+          content: 'Not found 页面不存在'
+        }
+      } else {
+        state.article[payload] = {
+          title: '',
+          introduction: '',
+          content: ''
+        }
+      }
     }
   },
   actions: {

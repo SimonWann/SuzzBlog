@@ -12,11 +12,8 @@ const routes = [
   {
     path: '/article/:id', 
     component: articlePage,
-    // children: [
-    //   {
-    //     path: ':id'
-    //   }
-    // ]
+    
+   
   },
   {
     path: '/login',

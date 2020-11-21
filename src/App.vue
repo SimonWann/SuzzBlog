@@ -1,8 +1,10 @@
 <template>
   <div >
-    <div>
-      <router-view>
-      </router-view>
+    <div @pageid="pageget()">
+      <transition>
+        <router-view>
+        </router-view>
+      </transition>
     </div>
   </div>
 </template>
@@ -11,8 +13,20 @@
 import mainPage from './components/main'
 
 export default {
+  data: function() {
+    return {
+      
+    }
+  },
   components: {
     mainPage,
+  },
+  created() {
+            this.$store.dispatch('askProfile', {
+                username: 'Simooo'
+            }).then(data => {
+                
+            })
   }
 }
 </script>

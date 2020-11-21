@@ -22,6 +22,10 @@ export default {
             pw: 0
         }
     },
+    created() {
+        
+        this.$store.commit('initArticle', this.query)
+    },
     methods:{
         screenH() {
             return document.documentElement.clientHeight
@@ -44,17 +48,15 @@ export default {
     mounted() {
         window.addEventListener('scroll', this.scrolltop)
     },
-    created() {
-        console.log('send msg')
-            this.$store.dispatch('askProfile', {
-                username: 'Simooo'
-            })
-    },
     computed: {
         query() {
             return parseInt(this.$route.params.id)
         },
         title() {
+            if(this.query >= this.$store.state.article.length) {
+                console.log(404)
+                this.$store.commit('initArticle', -1)
+            }
             return this.$store.state.article[this.query].title
         },
         convertor() {

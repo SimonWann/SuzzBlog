@@ -76,27 +76,27 @@ export default {
 </script>
 <style lang="less">
     @dpink: darken(#d1c2d3, 30%);
+    @red: #c6262e;
     #articlePage{
-        background: #d1c2d3;
+        
+        background-image: linear-gradient(to bottom right , @red, #ed5353);
         // background-image: linear-gradient(to bottom right, #50188d, #8d4bbd);
-        height: 330px;
+        height: 70vh;
         padding: 0px 0px 0px 0px;
         #info li a{
-            color: #894276;
+            color: #fff;
             &:hover{
-                color: #4e2a40;
+                color: lighten(#ff8c82, 15%);
             }
         }
-        #info p a{
-            color: #894276;
-            &:hover{
-                color: #4e2a40;
-            }
+        // #info p a{
+        //     color: #894276;
+        //     &:hover{
+        //         color: #4e2a40;
+        //     }
             
-        }
-        h3{
-
-        }
+        // }
+        
         pre{
             padding: 0px;
             border-width: 0px;
@@ -119,15 +119,18 @@ export default {
         }
         #title{
             height: 50px;
-            width: 500px;
+            color: #fff;
             margin: 0px auto;
             margin-top: 100px;
             font-size: 30px;
             font-weight: 400;
             text-align: center;
+            
         }
     }
     #acontent{
+        border-radius: 7px;
+        box-shadow: inset 0px 0px 5px #abacae;
         background: #fff;
         padding: 30px 80px;
         width: 70vw;
@@ -135,6 +138,10 @@ export default {
         // border: 1px solid #f9f4dc;
         // box-shadow: 1px 1px 3px #f9f4dc, 1px 1px 3px #f9f4dc;
         // border-radius: 5px;
+        ul li{
+            padding: 5px 20px;
+            font-weight: 700;
+        }
     }
     @media screen and (max-width: 960px) {
         #acontent{

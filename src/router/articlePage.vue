@@ -6,6 +6,7 @@
             <router-view></router-view>
         </div> -->
         <div id="acontent" v-html="content" />
+        <footer></footer>
         <div id="progressLine" :style="{ width: pw  + 'vw'}"></div>
     </div>
 </template>
@@ -79,14 +80,36 @@ export default {
 }
 </script>
 <style lang="less">
+    @gray-darker:  lighten(#000, 13.5%); // #222
+    @gray-dark:    lighten(#000, 20%);   // #333
+    @gray:         lighten(#000, 33.5%); // #555
+    @gray-light:   lighten(#000, 46.7%); // #777
+    @gray-lighter: lighten(#000, 93.5%); // #eee
     @dpink: darken(#d1c2d3, 30%);
+    @pink: #f2dede;
+    @keyframes changeColor{
+        from {
+            background: #fff;
+            box-shadow: 0px 0px 5px #abacae;
+        }
+        to {
+            background: darken(#fafafa, 10%);
+            box-shadow: 0px 0px 12px #abacae;
+        }
+        
+    }
     @red: #c6262e;
     #articlePage{
-        
+        footer{
+            position: relative;
+            height: 10px;
+        }
+        font-size: 16px;
         background-image: linear-gradient(to bottom right , @red, #ed5353);
         // background-image: linear-gradient(to bottom right, #50188d, #8d4bbd);
         height: 70vh;
         padding: 0px 0px 0px 0px;
+        
         #info li a{
             color: #fff;
             &:hover{
@@ -121,6 +144,13 @@ export default {
             padding: 30px 0px;
             color: #482936;
         }
+        h4{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 70%;
+            margin: 17px auto;
+        }
         #title{
             height: 50px;
             color: #fff;
@@ -136,7 +166,7 @@ export default {
         border-radius: 7px;
         box-shadow: inset 0px 0px 5px #abacae;
         background: #fff;
-        padding: 30px 80px;
+        padding: 50px 80px;
         width: 70vw;
         margin: 150px auto;
         // border: 1px solid #f9f4dc;
@@ -146,13 +176,51 @@ export default {
             padding: 5px 20px;
             font-weight: 700;
         }
+        blockquote{
+                overflow: auto;
+        }
+        table{
+            position: relative;
+            overflow: hidden;
+            border-collapse: collapse;
+            margin: 50px auto;
+            
+            // background: @gray-lighter;
+            // border: 1px solid @gray-light;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px #abacae;
+            thead{
+                tr{
+                    background: lighten(@red, 5%);
+                    color: #fff;
+                    th{
+                    padding: 10px 30px;
+                    text-align: left;
+                }
+                }
+            }
+            tbody tr{
+                border-radius: 5px;
+                td{
+                    padding: 10px 30px;
+                    text-align: left;
+                }
+                &:hover{
+                    animation: changeColor 0.5s;
+                    animation-timing-function: ease-out;
+                    animation-fill-mode: forwards;
+            } 
+            }
+        }
+        
     }
     @media screen and (max-width: 960px) {
         #acontent{
             background: #fff;
-            padding: 10px 80px;
+            padding: 40px 20px;
             width: 100vw;
             margin: 150px auto;
+            
         }
     }
     #progressLine{

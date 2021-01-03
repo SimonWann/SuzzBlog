@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import articlePage from './articlePage'
-import mainPage from '../components/main'
-import loginPage from './loginPage.vue'
-import editPage from './editPage.vue'
+
+const mainPage =  () => import('../components/main')
+const loginPage = () =>  import('./loginPage.vue')
+const editPage = () => import('./editPage.vue')
 
 Vue.use(VueRouter)
 
@@ -29,6 +30,9 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
+})
+router.afterEach((to, from, next) => {
+  document.documentElement.scrollTop = 0
 })
 
 export default router

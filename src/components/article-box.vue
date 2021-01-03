@@ -1,5 +1,5 @@
 <template>
-    <div :style="{top: distance + 'px'}" id="articleBox" ref="card" @mouseenter="move($event)">
+    <div :style="{top: distance + 'px'}" id="articleBox" ref="card" >
         <h3><span class="glyphicon" :class="stylefont[index%stylefont.length]" ></span></h3>
         <h3>{{title}}</h3>
         <p>{{content}}</p>
@@ -27,21 +27,21 @@ export default {
         }
     },
     methods: {
-        move(event) {
-            this.distance = 0
-            let timer = setInterval(() => {
-                this.distance--
-                if(this.distance < -13) {
-                    clearInterval(timer)
-                    this.distance = -13
-                }
-            }, 5);
-            
-        }
+        
     }
 }
 </script>
 <style lang="less">
+    @keyframes move{
+        from{
+            box-shadow: 0px 1px 6px #a6a6a6;
+            top: 0px;
+        }
+        to{
+            box-shadow: 0px 1px 13px #a6a6a6;
+            top: -3px;
+        }
+    }
     #articleBox{
         padding: 10px 20px;
         margin: 0px auto;
@@ -54,6 +54,7 @@ export default {
         height: 240px;
         background: #fff;
         text-align: center;
+        position: relative;
         &:hover{
             cursor: pointer;
         }
@@ -77,9 +78,9 @@ export default {
             line-height: 22px;
         }
         &:hover{
-            position: relative;
-            
-            box-shadow: 0px 1px 10px #a6a6a6;
+            animation: move 0.5s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease-out;
         }
     }
     @media screen and (max-width: 960px){

@@ -25,6 +25,7 @@ export default new Vuex.Store({
       state.username = payload.data.username
       state.paperNum = payload.data.paperNum
       state.article = payload.data.article
+      state.article.reverse()
     },
     loginIn(state, payload) {
       console.log(payload.data)

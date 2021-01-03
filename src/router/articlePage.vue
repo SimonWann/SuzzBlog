@@ -169,6 +169,7 @@ export default {
         padding: 50px 80px;
         width: 70vw;
         margin: 150px auto;
+        overflow: auto;
         // border: 1px solid #f9f4dc;
         // box-shadow: 1px 1px 3px #f9f4dc, 1px 1px 3px #f9f4dc;
         // border-radius: 5px;

@@ -4,7 +4,7 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 const blogAxios = Axios.create({
-  baseURL: 'http://suzzz.top:3001'
+  baseURL: 'https://suzzz.top'
 })
 
 export default new Vuex.Store({

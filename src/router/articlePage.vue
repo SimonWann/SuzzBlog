@@ -144,12 +144,21 @@ export default {
             padding: 30px 0px;
             color: #482936;
         }
+        img{
+            display: inline-block;
+        }
         h4{
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
             width: 70%;
             margin: 17px auto;
+            img{
+                max-width:  40vw;
+                max-height: 40vh;
+                width: auto;
+                height: auto;
+            }
         }
         #title{
             height: 50px;

@@ -176,6 +176,14 @@ export default {
 }
 </script>
 <style lang="less">
+    @keyframes changeColor {
+        from{
+            background-color: #fff;
+        }
+        to{
+            background-color: #d4d4d4;
+        }
+    }
     #editPage{
         display: flex;
         justify-content: space-around;
@@ -223,12 +231,26 @@ export default {
                     }
                 }
                 #control{
-                    padding: 5.5px 50px;
+                    padding: 0px 50px;
+                    
                     width: 100%;
                     height: 5vh;
                     border-left: 1px solid #dddddd;
                     button{
-                        margin: 0px 30px 0px 0px;
+                        border-radius: 0px;
+                        margin: 0px 0px 0px 0px;
+                        border-width: 0px 1px 0px 0px;
+                        height: 100%;
+                        &:first-child{
+                            border-left-width: 1px;
+                            border-radius: 3px 0px 0px 3px;
+                        }
+                        &:last-child{
+                            border-radius: 0px 3px 3px 0px;
+                        }
+                        &:hover{
+                            animation: changeColor 0.7s;
+                        }
                     }
                 }
                 textarea{

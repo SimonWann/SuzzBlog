@@ -158,6 +158,12 @@ export default {
                 max-height: 40vh;
                 width: auto;
                 height: auto;
+                
+            }
+        }
+        p{
+            img{
+                margin-left: 5vw;
             }
         }
         #title{
@@ -184,7 +190,10 @@ export default {
         // border-radius: 5px;
         ul li{
             padding: 5px 20px;
-            font-weight: 700;
+            color: #4d4d4d;
+            &::before{
+                content: ' ・ ';
+            }
         }
         blockquote{
                 overflow: auto;

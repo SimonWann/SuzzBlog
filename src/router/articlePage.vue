@@ -164,6 +164,7 @@ export default {
         p{
             img{
                 margin-left: 5vw;
+                max-width: 30vw;
             }
         }
         #title{
